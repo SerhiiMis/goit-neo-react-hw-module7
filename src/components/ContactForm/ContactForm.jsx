@@ -11,7 +11,7 @@ const ContactForm = () => {
     const name = form.name.value;
     const number = form.number.value;
 
-    dispatch(addContact({ name, number })); // Додаємо новий контакт
+    dispatch(addContact({ name, number }));
     form.reset();
   };
 

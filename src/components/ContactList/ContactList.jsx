@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilteredContacts } from "../../redux/contactsSlice"; // Використовуємо мемоізований селектор
+import { selectFilteredContacts } from "../../redux/contactsSlice";
 import { deleteContact } from "../../redux/contactsOps";
 import styles from "./ContactList.module.css";
 
@@ -8,7 +8,7 @@ const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
 
   const handleDelete = (id) => {
-    dispatch(deleteContact(id)); // Видалення контакту
+    dispatch(deleteContact(id));
   };
 
   return (

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createSelector } from "reselect";
-import { fetchContacts, addContact, deleteContact } from "./contactsOps"; // imports for async operations
-
+import { fetchContacts, addContact, deleteContact } from "./contactsOps";
 const initialState = {
   items: [],
   loading: false,
@@ -13,7 +12,7 @@ const contactsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      // Handle async operations like fetchContacts, addContact, and deleteContact here
+
       .addCase(fetchContacts.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -55,12 +54,10 @@ const contactsSlice = createSlice({
   },
 });
 
-// Selectors
 export const selectContacts = (state) => state.contacts.items;
 export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 
-// Memoized selector to filter contacts based on the filter state
 export const selectFilteredContacts = createSelector(
   [selectContacts, (state) => state.filters.name],
   (contacts, filter) => {
